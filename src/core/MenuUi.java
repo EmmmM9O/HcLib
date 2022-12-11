@@ -1,7 +1,9 @@
 package core;
 
 import arc.util.Nullable;
+import core.Tables.ButtonTable;
 import core.Tables.TextTable;
+import core.funcs.ButtonRun;
 import core.funcs.GetSFunc;
 import mindustry.gen.Call;
 import mindustry.gen.Player;
@@ -29,6 +31,9 @@ public class MenuUi {
     }
     public void text(String message){
         now.add(new TextTable(message));
+    }
+    public void button(String m, ButtonRun run){
+        now.add(new ButtonTable(m,run));
     }
     public void row(){
 
