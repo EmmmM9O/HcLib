@@ -28,7 +28,9 @@ public class mainMod extends Mod{
         ui.text("test");
         Log.info("Loading some example content.");
         Events.on(EventType.PlayerChatEvent.class,event -> {
+            
             var m=event.message;var p=event.player;
+            Log.info("one message");
             ui.show(p,new Object());
         });
 
