@@ -1,6 +1,6 @@
 package core.Tables;
 
-import core.UiTable;
+import core.ui.UiTable;
 import core.funcs.GetSFunc;
 
 

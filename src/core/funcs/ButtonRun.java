@@ -1,9 +1,8 @@
 package core.funcs;
 
-import core.MenuUi;
-import core.UiTable;
+import core.ui.Elements;
 import mindustry.gen.Player;
 
 public interface ButtonRun {
-    void get(Player p, Object data, MenuUi ui);
+    void get(Player p, Object data, Elements ui);
 }

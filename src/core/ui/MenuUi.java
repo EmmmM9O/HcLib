@@ -1,4 +1,4 @@
-package core;
+package core.ui;
 
 import arc.util.Nullable;
 import core.Tables.ButtonTable;
@@ -17,7 +17,7 @@ import java.util.Vector;
 public class MenuUi {
     public Map<String,Integer> id;
     public Map<String,Object> data=new HashMap<>();
-    public Vector<Vector<UiTable>> elements=new Vector<>();
+    public Elements elements=new Elements();
     public Vector<UiTable> now=new Vector<>();
     @Nullable
     public GetSFunc<Player> Title;
@@ -29,20 +29,23 @@ public class MenuUi {
     public MenuUi(GetSFunc t,GetSFunc d){
         Title=t;Desc=d;
     }
-    public void text(String message){
-        now.add(new TextTable(message));
-    }
-    public void button(String m, ButtonRun run){
-        now.add(new ButtonTable(m,run));
-    }
-    public void row(){
 
-        elements.add(new Vector<>(now));
-        now.clear();
-    }
     public void show(Player p,Object addon){
+        var ew=elements.get();
+        int ii=0,jj=0;
+        var ee=new Elements();
+        for (var i:ew){
+            for (var k:i){
+                k.near(p,addon,ee);
+                ee.o.get(ii).set(jj,k);
+                jj++;
+            }
+            ii++;jj=0;
+            ee.row();
+        }
+        var e=ee.get();
         int Max=0;
-        for (var i:elements){
+        for (var i:e){
             Max=Math.max(Max,i.size());
         }
         if(data.containsKey(p.uuid())){
@@ -50,11 +53,11 @@ public class MenuUi {
         }
         data.put(p.uuid(),addon);
         String title=Title.get(p),desc= Desc.get(p);
-        if (now.size()>0) row();
-        String[][] s=new String[elements.size()][Max];
+        if (now.size()>0) elements.row();
+        String[][] s=new String[e.size()+1][Max+1];
         Vector<UiTable> sh=new Vector<>();
-        for (int i=0;i<elements.size();i++){
-            var k=elements.get(i);
+        for (int i=0;i<e.size();i++){
+            var k=elements.o.get(i);
             for (int j=0;j<k.size();j++){
                 if(k.get(i).show(p,data.get(p.uuid()))){
                     s[i][j]=k.get(j).Message.get(p);
@@ -65,7 +68,8 @@ public class MenuUi {
         var that=this;
         id.put(p.uuid(), Menus.registerMenu((player, option) ->{
             if(option>=sh.size()) return;
-            sh.get(option).run(player,data.get(player.uuid()),that);
+            sh.get(option).run(player,data.get(player.uuid()),ee);
+            if(!sh.get(option).close) show(player,data.get(player.uuid()));
         }));
         Call.menu(p.con,id.get(p.uuid()),title,desc,s);
     }

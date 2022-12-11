@@ -1,7 +1,8 @@
-package core;
+package core.ui;
 
 
 import core.funcs.GetSFunc;
+import core.ui.MenuUi;
 import mindustry.gen.Player;
 
 public class UiTable {
@@ -16,7 +17,10 @@ public class UiTable {
     public boolean show(Player p,Object data){
         return true;
     }
-    public void run(Player p,Object data,MenuUi ui){
+    public void run(Player p, Object data,Elements ui){
+
+    }
+    public void near(Player p,Object data,Elements ui){
 
     }
     public boolean close=false;
