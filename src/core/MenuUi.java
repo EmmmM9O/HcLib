@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.Vector;
 
 public class MenuUi {
-    public Map<String,Integer> id;
+    public Map<String,Integer> id=new HashMap<>()
     public Map<String,Object> data=new HashMap<>();
     public Vector<Vector<UiTable>> elements=new Vector<>();
     public Vector<UiTable> now=new Vector<>();
@@ -51,7 +51,7 @@ public class MenuUi {
         data.put(p.uuid(),addon);
         String title=Title.get(p),desc= Desc.get(p);
         if (now.size()>0) row();
-        String[][] s=new String[elements.size()][Max];
+        String[][] s=new String[elements.size()+1][Max+1];
         Vector<UiTable> sh=new Vector<>();
         for (int i=0;i<elements.size();i++){
             var k=elements.get(i);
