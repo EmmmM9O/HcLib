@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.Vector;
 
 public class MenuUi {
-    public Map<String,Integer> id=new HashMap<>()
+    public Map<String,Integer> id=new HashMap<>();
     public Map<String,Object> data=new HashMap<>();
     public Vector<Vector<UiTable>> elements=new Vector<>();
     public Vector<UiTable> now=new Vector<>();
