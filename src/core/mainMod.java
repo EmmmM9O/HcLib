@@ -14,7 +14,7 @@ public class mainMod extends Mod{
         Log.info("Loaded HcLib");
 
         //listen for game load event
-        Events.on(ClientLoadEvent.class, e -> {
+        Events.on(EventType.ServerLoadEvent.class, e -> {
             //show dialog upon startup
             Time.runTask(10f, () -> {
                 loadContent();
