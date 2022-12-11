@@ -17,7 +17,7 @@ public class mainMod extends Mod{
         Events.on(ClientLoadEvent.class, e -> {
             //show dialog upon startup
             Time.runTask(10f, () -> {
-
+                loadContent();
             });
         });
     }
