@@ -24,6 +24,9 @@ public class MenuUi {
         Title=(player -> title);
         Desc=(player -> desc);
     }
+    public MenuUi(GetSFunc t,GetSFunc d){
+        Title=t;Desc=d;
+    }
     public void text(String message){
         now.add(new TextTable(message));
     }
