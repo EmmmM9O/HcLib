@@ -57,7 +57,7 @@ public class MenuUi {
         String[][] s=new String[e.size()+1][Max+1];
         Vector<UiTable> sh=new Vector<>();
         for (int i=0;i<e.size();i++){
-            var k=elements.o.get(i);
+            var k=e.get(i);
             for (int j=0;j<k.size();j++){
                 if(k.get(i).show(p,data.get(p.uuid()))){
                     s[i][j]=k.get(j).Message.get(p);
