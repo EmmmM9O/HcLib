@@ -13,12 +13,12 @@ public class mainMod extends Mod{
 
     public mainMod(){
         Log.info("Loaded HcLib");
-
         //listen for game load event
         Events.on(ServerLoadEvent.class, e -> {
             //show dialog upon startup
             Time.runTask(10f, () -> {
                 loadContent();
+
             });
         });
     }

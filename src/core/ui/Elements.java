@@ -29,6 +29,10 @@ public class Elements {
         if(now.size()>0)k.add(now);
         return k;
     }
+    public void add(UiTable t){
+        now.add(t);
+
+    }
 
 
 }

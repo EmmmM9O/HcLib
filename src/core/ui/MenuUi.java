@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.Vector;
 
 public class MenuUi {
-    public Map<String,Integer> id;
+    public Map<String,Integer> id=new HashMap<>();
     public Map<String,Object> data=new HashMap<>();
     public Elements elements=new Elements();
     public Vector<UiTable> now=new Vector<>();
@@ -32,15 +32,15 @@ public class MenuUi {
 
     public void show(Player p,Object addon){
         var ew=elements.get();
-        int ii=0,jj=0;
+
         var ee=new Elements();
         for (var i:ew){
             for (var k:i){
                 k.near(p,addon,ee);
-                ee.o.get(ii).set(jj,k);
-                jj++;
+
+                ee.add(k);
             }
-            ii++;jj=0;
+
             ee.row();
         }
         var e=ee.get();
