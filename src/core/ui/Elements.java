@@ -1,7 +1,7 @@
 package core.ui;
 
-import core.Tables.ButtonTable;
-import core.Tables.TextTable;
+import core.ui.Tables.ButtonTable;
+import core.ui.Tables.TextTable;
 import core.funcs.ButtonRun;
 
 import java.util.Vector;

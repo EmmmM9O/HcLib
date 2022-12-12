@@ -1,9 +1,6 @@
 package core.ui;
 
 import arc.util.Nullable;
-import core.Tables.ButtonTable;
-import core.Tables.TextTable;
-import core.funcs.ButtonRun;
 import core.funcs.GetSFunc;
 import mindustry.gen.Call;
 import mindustry.gen.Player;
@@ -16,7 +13,7 @@ import java.util.Vector;
 
 public class MenuUi {
     public Map<String,Integer> id=new HashMap<>();
-    public Map<String,Object> data=new HashMap<>();
+    public Map<String,Map<String,? extends Object>> data=new HashMap<>();
     public Elements elements=new Elements();
     public Vector<UiTable> now=new Vector<>();
     @Nullable
@@ -30,7 +27,7 @@ public class MenuUi {
         Title=t;Desc=d;
     }
 
-    public void show(Player p,Object addon){
+    public void show(Player p,Map<String,? extends Object> addon){
         var ew=elements.get();
 
         var ee=new Elements();

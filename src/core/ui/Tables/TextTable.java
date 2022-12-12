@@ -1,4 +1,4 @@
-package core.Tables;
+package core.ui.Tables;
 
 import core.ui.UiTable;
 import core.funcs.GetSFunc;

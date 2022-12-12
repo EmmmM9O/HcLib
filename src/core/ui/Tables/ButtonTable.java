@@ -1,7 +1,6 @@
-package core.Tables;
+package core.ui.Tables;
 
 import core.ui.Elements;
-import core.ui.MenuUi;
 import core.ui.UiTable;
 import core.funcs.ButtonRun;
 import mindustry.gen.Player;
