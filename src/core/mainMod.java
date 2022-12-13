@@ -53,7 +53,7 @@ public class mainMod extends Mod{
         Log.info("Loading some example content.");
         Events.on(EventType.PlayerChatEvent.class,event -> {
             var m=event.message;var p=event.player;
-            ui.show(p, new HashMap<>());
+            ui.show(p,0);
         });
 
     }
