@@ -1,20 +1,24 @@
 package core.ui.Tables;
 
 
+import core.Data;
 import core.funcs.ButtonRun;
 import core.ui.Elements;
 import core.ui.UiTable;
 import mindustry.gen.Player;
 
-public class ElesTable extends UiTable {
-    @Override
-    public boolean show(Player p, Object data) {
-        return false;
-    }
-    public ButtonRun ElesRun;
+import java.util.Map;
+
+public class ElesTable<T> extends UiTable<T>{
 
     @Override
-    public void near(Player p, Object data, Elements ui) {
+    public boolean show(Player p, T data) {
+        return false;
+    }
+    public ButtonRun<T> ElesRun;
+
+    @Override
+    public void near(Player p, T data, Elements ui) {
         ElesRun.get(p,data,ui);
     }
 
