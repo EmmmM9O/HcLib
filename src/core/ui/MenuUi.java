@@ -57,7 +57,7 @@ public class MenuUi <T>{
         for (int i=0;i<e.size();i++){
             var k=e.get(i);
             for (int j=0;j<k.size();j++){
-                if(k.get(i).show(p,data.get(p.uuid()))){
+                if(k.get(j).show(p,data.get(p.uuid()))){
                     s[i][j]=k.get(j).Message.get(p);
                     sh.add(k.get(j));
                 }
