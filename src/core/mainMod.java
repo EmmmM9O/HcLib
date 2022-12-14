@@ -2,7 +2,6 @@ package core;
 
 import arc.*;
 import arc.util.*;
-import core.funcs.ButtonRun;
 import core.funcs.IntButton;
 import core.ui.Elements;
 import core.ui.MenuUi;
@@ -13,8 +12,6 @@ import mindustry.game.EventType.*;
 import mindustry.gen.Player;
 import mindustry.mod.*;
 
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class mainMod extends Mod{
@@ -37,18 +34,20 @@ public class mainMod extends Mod{
         ui.elements.text("test");
         ui.elements.button("add", new IntButton() {
             @Override
-            public void get(Player p, Integer data, Elements ui) {
+            public Integer get(Player p, Integer data, Elements ui) {
                 if(equals(data)) data=0;
                 data++;
                 Log.info(data);
+                return data;
             }
         }, true);
         ui.elements.add(new ElesTable("none",((p, data, ui1) -> {
             ui1.text("test2");
             ui1.text(data.toString());
+            return data;
         })));
         ui.elements.row();
-        ui.elements.button("close",((p, data, ui1) -> {}),true);
+        ui.elements.button("close",((p, data, ui1) -> data),true);
 
         Log.info("Loading some example content.");
         Events.on(EventType.PlayerChatEvent.class,event -> {

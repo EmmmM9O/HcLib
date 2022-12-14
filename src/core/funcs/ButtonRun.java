@@ -8,5 +8,5 @@ import java.util.Map;
 
 public interface ButtonRun <T>{
 
-    void get(Player p, T data, Elements ui);
+    T get(Player p, T data, Elements ui);
 }

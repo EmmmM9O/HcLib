@@ -6,12 +6,12 @@ import core.funcs.ButtonRun;
 
 import java.util.Vector;
 
-public class Elements {
+public class Elements <T>{
     public Elements(){
 
     }
-    public Vector<Vector<UiTable>> o=new Vector<>();
-    public Vector<UiTable> now=new Vector<>();
+    public Vector<Vector<UiTable<T>>> o=new Vector<>();
+    public Vector<UiTable<T>> now=new Vector<>();
     public void text(String message){
         now.add(new TextTable(message));
     }
@@ -24,13 +24,13 @@ public class Elements {
         o.add(new Vector<>(now));
         now.clear();
     }
-    public Vector<Vector<UiTable>> get(){
+    public Vector<Vector<UiTable<T>>> get(){
         var k=new Vector<>(o);
         if(now.size()>0)k.add(now);
         return k;
     }
-    public void add(UiTable t){
-        now.add(t);
+    public void add(UiTable<T> tt){
+        now.add(tt);
 
     }
 

@@ -15,7 +15,7 @@ import java.util.Vector;
 public class MenuUi <T>{
     public Map<String,Integer> id=new HashMap<>();
     public Map<String,T> data=new HashMap<>();
-    public Elements elements=new Elements();
+    public Elements<T> elements=new Elements();
     public Vector<UiTable<T>> now=new Vector<>();
     @Nullable
     public GetSFunc<Player> Title;
@@ -31,10 +31,10 @@ public class MenuUi <T>{
     public void show(Player p,T addon){
         var ew=elements.get();
 
-        var ee=new Elements();
+        var ee=new Elements<T>();
         for (var i:ew){
             for (var k:i){
-                k.near(p,addon,ee);
+                data.put(p.uuid(),k.near(p,addon,ee));
 
                 ee.add(k);
             }
@@ -53,7 +53,7 @@ public class MenuUi <T>{
         String title=Title.get(p),desc= Desc.get(p);
         if (now.size()>0) elements.row();
         String[][] s=new String[e.size()+1][Max+1];
-        Vector<UiTable> sh=new Vector<>();
+        Vector<UiTable<T>> sh=new Vector<>();
         for (int i=0;i<e.size();i++){
             var k=e.get(i);
             for (int j=0;j<k.size();j++){
@@ -63,10 +63,10 @@ public class MenuUi <T>{
                 }
             }
         }
-        var that=this;
+
         id.put(p.uuid(), Menus.registerMenu((player, option) ->{
             if(option>=sh.size()) return;
-            sh.get(option).run(player,data.get(player.uuid()),ee);
+            data.put(p.uuid(),sh.get(option).run(player,data.get(player.uuid()),ee));
             if(!sh.get(option).close) show(player,data.get(player.uuid()));
         }));
         Call.menu(p.con,id.get(p.uuid()),title,desc,s);

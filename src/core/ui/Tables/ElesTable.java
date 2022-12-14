@@ -18,8 +18,10 @@ public class ElesTable<T> extends UiTable<T>{
     public ButtonRun<T> ElesRun;
 
     @Override
-    public void near(Player p, T data, Elements ui) {
-        ElesRun.get(p,data,ui);
+    public T near(Player p, T data, Elements ui) {
+        data=super.near(p,data,ui);
+        data=ElesRun.get(p,data,ui);
+        return data;
     }
 
     public ElesTable(String text, ButtonRun run){

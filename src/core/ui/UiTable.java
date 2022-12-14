@@ -20,11 +20,11 @@ public class UiTable <T>{
     public boolean show(Player p, T data){
         return true;
     }
-    public  void run(Player p,T data, Elements ui){
-
+    public  T run(Player p,T data, Elements ui){
+        return data;
     }
-    public void near(Player p,T data,Elements ui){
-
+    public T near(Player p,T data,Elements ui){
+        return data;
     }
     public boolean close=false;
 }

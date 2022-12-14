@@ -17,8 +17,9 @@ public class ButtonTable <T>extends UiTable<T> {
     }
 
     @Override
-    public void run(Player p, T data, Elements ui) {
-        super.run(p, data, ui);
-        Run.get(p,data,ui);
+    public T run(Player p, T data, Elements ui) {
+        data=super.run(p, data, ui);
+        data=Run.get(p,data,ui);
+        return data;
     }
 }
