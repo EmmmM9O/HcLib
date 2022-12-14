@@ -40,7 +40,7 @@ public class mainMod extends Mod{
                 Log.info(data);
                 return data;
             }
-        }, true);
+        }, false);
         ui.elements.add(new ElesTable("none",((p, data, ui1) -> {
             ui1.text("test2");
             ui1.text(data.toString());
